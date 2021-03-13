@@ -1,13 +1,4 @@
 window.onload = () => {
-  const play = document.getElementById("play");
-  play.addEventListener( 'click', (click) => {
-    const video_container = document.getElementById("video_container");
-    video_container.style.display = "block";
-
-    const video = document.getElementById("testing_video");
-    video.play();
-  });
-
   get_movies();
 }
 
@@ -19,14 +10,31 @@ function get_movies() {
   ).then( response => response.json() )
   .then( json => {
     console.dir( json );
-    json.forEach( movie => {
-      console.dir( movie );
-      get_image( movie.file_name );
-    });
+    compose_scrollable( json );
   });
 }
 
 function get_image( image_name ) {
   const myimage = document.getElementById("myimage");
   myimage.src = "/images/" + image_name + ".jpg";
+}
+
+function launch_movie( inMovieName ) {
+  const video_container = document.getElementById("video_container");
+  const video_player = document.getElementById("video_player");
+  video_container.style.display = "block";
+  video_player.src = 'http://54.218.114.68:3000/film/' + inMovieName;
+  video_player.play();
+}
+
+function compose_scrollable( inScrollables ) {
+  let dom = "";
+  inScrollables.forEach( (item) => {
+    dom += "<img src=\"/images/" + item.file_name + ".jpg\" " +
+    "class=\'image\' " +
+    "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
+    "/>";
+  });
+  const cont = document.getElementById("scrollables_container");
+  cont.innerHTML = dom;
 }

@@ -5,12 +5,17 @@
   <script src="main.js"></script>
 </head>
 <body>
-<button id="play">Play</button>
+<!--button id="play">Play</button-->
+
 <div id="video_container">
-  <video id="testing_video" class="video" autoplay="true" controls>
-    <source src="http://54.218.114.68:3000/goat" type="video/mp4" />
+  <video id="video_player" class="video" autoplay="true" controls>
+    <source id="video_source" type="video/mp4" />
   </video>
+</div>
+
+<div id="scrollables_container">
   <img id="myimage"/>
 </div>
+
 </body>
 </html>

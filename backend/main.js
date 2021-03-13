@@ -37,7 +37,7 @@ function launch_routes( movies ) {
 
 load_movie_data();
 
-app.get( "/goat", (req,res) => {
+app.get( "/film/:film_id", (req,res) => {
   //  Get the range requested by the client.
   //  If there is no range, send an error to the client,
   //informing the client that the request is bad.
@@ -47,10 +47,10 @@ app.get( "/goat", (req,res) => {
   }
 
   //  Set the path to the video
-  const videoPath = "movies/the_goat.mp4";
+  const videoPath = "movies/" + req.params.film_id + ".mp4";
 
   //  Get the file size of the video.
-  const videoSize = fs.statSync("movies/the_goat.mp4").size;
+  const videoSize = fs.statSync("movies/" + req.params.film_id + ".mp4").size;
 
   //  Create a chunk size equal to 10 to the power of 6
   const CHUNK_SIZE = 10 ** 6;
