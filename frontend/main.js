@@ -21,7 +21,12 @@ function get_movies() {
     console.dir( json );
     json.forEach( movie => {
       console.dir( movie );
-      
+      get_image( movie.file_name );
     });
   });
+}
+
+function get_image( image_name ) {
+  const myimage = document.getElementById("myimage");
+  myimage.src = "/images/" + image_name + ".jpg";
 }

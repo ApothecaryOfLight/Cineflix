@@ -15,7 +15,10 @@ function load_movie_data() {
       if( file.slice(-3) == "txt" ) {
         //Read the metadata as JSON
         fs.readFile( './movies/' + file, 'utf8', async (error, data) => {
-          object_array.push( JSON.parse( data ) );
+          const out_obj = JSON.parse( data );
+          const file_name = file.slice( 0, -4 );
+          out_obj.file_name = file_name;
+          object_array.push( out_obj );
           //If all the files have been iterated over, launch
           if( object_array.length == files.length/3 ) {
             launch_routes( object_array );
@@ -33,7 +36,6 @@ function launch_routes( movies ) {
 }
 
 load_movie_data();
-
 
 app.get( "/goat", (req,res) => {
   //  Get the range requested by the client.
