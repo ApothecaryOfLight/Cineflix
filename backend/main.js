@@ -1,6 +1,39 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const cors = require("cors");
+app.use( cors() );
+
+
+function load_movie_data() {
+  //Get a list of files in the movie directory
+  fs.readdir( './movies/', async (error,files) => {
+    const object_array = [];
+    //Iterate over each file
+    files.forEach( (file) => {
+      //If the file ends in txt it is metadata.
+      if( file.slice(-3) == "txt" ) {
+        //Read the metadata as JSON
+        fs.readFile( './movies/' + file, 'utf8', async (error, data) => {
+          object_array.push( JSON.parse( data ) );
+          //If all the files have been iterated over, launch
+          if( object_array.length == files.length/3 ) {
+            launch_routes( object_array );
+          }
+        });
+      }
+    });
+  });
+}
+
+function launch_routes( movies ) {
+  app.get( "/get_movies", (req,res) => {
+    res.send( movies );
+  });
+}
+
+load_movie_data();
+
 
 app.get( "/goat", (req,res) => {
   //  Get the range requested by the client.

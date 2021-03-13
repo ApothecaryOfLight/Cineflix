@@ -7,4 +7,21 @@ window.onload = () => {
     const video = document.getElementById("testing_video");
     video.play();
   });
+
+  get_movies();
+}
+
+function get_movies() {
+  fetch( 'http://54.218.114.68:3000/get_movies',
+    {
+      method: 'GET'
+    }
+  ).then( response => response.json() )
+  .then( json => {
+    console.dir( json );
+    json.forEach( movie => {
+      console.dir( movie );
+      
+    });
+  });
 }
