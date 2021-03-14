@@ -30,7 +30,7 @@ function launch_movie( inMovieName ) {
 function compose_scrollable( inScrollables ) {
   let dom = "";
   inScrollables.forEach( (item) => {
-    dom += "<img src=\"/images/" + item.file_name + ".jpg\" " +
+    dom += "<img src=\"/images/" + item.picture + "\" " +
     "class=\'image\' " +
     "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
     "/>";
