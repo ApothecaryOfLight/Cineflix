@@ -35,12 +35,6 @@ if ! [ -f ./backend/movies/ambush_valley.txt ]; then
   printf "{\"name\": \"Ambush Valley\",\n\"picture\": \"ambush_valley.jpg\",\n\"year\": \"1936\",\n\"genre\": \"Western\",\n\"description\": \"A murder and jailbreak lead to a hostage situation.\"}" > ./backend/movies/ambush_valley.txt
 fi
 
-if ! [ -f ./backend/movies/neath_arizona_skies.txt ]; then
-  curl https://ia800909.us.archive.org/22/items/NeaththeArizonaSkys/NeaththeArizonaSkys_512kb.mp4 --output ./backend/movies/neath_arizona_skies.mp4
-  curl https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Poster_-_%27Neath_the_Arizona_Skies_03.jpg/500px-Poster_-_%27Neath_the_Arizona_Skies_03.jpg --output ./backend/movies/neath_arizona_skies.jpg
-  printf "{\"name\": \"Neath Arizona Skies\",\n\"picture\": \"neath_arizona_skies.jpg\",\n\"year\": \"1934\",\n\"genre\": \"Western\",\n\"description\": \"John Wayne attempts to find a little girl's father so that she can claim a $50,000 oil claim.\"}" > ./backend/movies/neath_arizon_skies.txt
-fi
-
 if ! [ -f ./backend/movies/the_big_combo.txt ]; then
   curl https://ia803207.us.archive.org/17/items/The_Big_Combo_1955/Big_Combo_1955.mp4 --output ./backend/movies/the_big_combo.mp4
   curl https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/The_Big_Combo_poster.jpg/500px-The_Big_Combo_poster.jpg --output ./backend/movies/the_big_combo.jpg

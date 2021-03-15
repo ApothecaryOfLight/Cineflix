@@ -25,6 +25,51 @@ function launch_movie( inMovieName ) {
   video_container.style.display = "block";
   video_player.src = 'http://54.218.114.68:3000/film/' + inMovieName;
   video_player.play();
+  attach_exit_button();
+}
+
+const mouse_tracking = {
+  "last_move": 0,
+  x_pos: 0,
+  y_pos: 0
+}
+
+function check_mouse( mouse_event ) {
+//console.dir( mouse_event );
+  mouse_tracking.last_move = Date.now();
+  const exit_button = document.getElementById("exit_button");
+  exit_button.style.display = "inline";
+}
+function check_toucher( touch_event ) {
+//console.dir( touch_event );
+  mouse_tracking.last_move = Date.now();
+  const exit_button = document.getElementById("exit_button");
+  exit_button.style.display = "inline";
+}
+
+function is_mouse_gone() {
+  const now = Date.now();
+  if( now-500 > mouse_tracking.last_move ) {
+    const exit_button = document.getElementById("exit_button");
+    exit_button.style.display = "none";
+  }
+}
+
+function attach_exit_button() {
+  const exit_button = document.getElementById("exit_button");
+  exit_button.addEventListener( 'click', exit_movie );
+  exit_button.addEventListener( 'touchstart', exit_movie );
+
+  window.addEventListener( 'mousedown', check_mouse );
+  window.addEventListener( 'mousemove', check_mouse );
+  window.addEventListener( 'touchmove', check_toucher );
+  window.addEventListener( 'touchstart', check_toucher );
+
+  window.setInterval( is_mouse_gone, 500 );
+}
+
+function exit_movie() {
+  
 }
 
 function compose_scrollable( inScrollables ) {
@@ -37,4 +82,6 @@ function compose_scrollable( inScrollables ) {
   });
   const cont = document.getElementById("scrollables_container");
   cont.innerHTML = dom;
+  const contB = document.getElementById("scrollables_containerB");
+  contB.innerHTML = dom;
 }
