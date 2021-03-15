@@ -81,10 +81,12 @@ function exit_movie() {
 function compose_scrollable( inScrollables ) {
   let dom = "";
   inScrollables.forEach( (item) => {
+    dom += "<div class=\"image_container\">";
     dom += "<img src=\"/images/" + item.picture + "\" " +
     "class=\'image\' " +
     "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
     "/>";
+    dom += "</div>";
   });
   const cont = document.getElementById("scrollables_container");
   cont.innerHTML = dom;

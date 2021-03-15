@@ -8,8 +8,6 @@ body {
   background: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow-x: hidden;
 }
 
@@ -30,32 +28,40 @@ body {
   width: 100px;
 }
 .image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.image_container {
   --tiles: 5;
-  width: calc( (( 100% - 6% ) / var(--tiles)) );
-  height: calc( ((( 100% - 6% ) / var(--tiles))) * 1.4 );
+  width: calc( (( 100vw - 6vw ) / var(--tiles)) );
   margin-left: 0.5%;
   margin-right: 0.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
 }
 .scrollables_container {
   --tiles: 5;
   display: flex;
   flex-direction: row;
-  margin-left: calc((( 100% - 6% ) / var(--tiles)) / 8 );
-  margin-right: calc((( 100% - 6% ) / var(--tiles)) / 8 );
+  margin-left: calc((( 100vw - 6vw ) / var(--tiles)) / 8 );
+  margin-right: calc((( 100vw - 6vw ) / var(--tiles)) / 8 );
   margin-top: 35px;
+  width: fit-content;
 }
 @media (min-width:300px) {
-  .image {
+  .image_container {
     --tiles: 2;
   }
 }
 @media (min-width:500px) {
-  .image {
+  .image_container {
     --tiles: 3;
   }
 }
 @media (min-width:700px) {
-  .image {
+  .image_container {
     --tiles: 4;
   }
   .scrollables_container {
@@ -63,22 +69,22 @@ body {
   }
 }
 @media (min-width:900px) {
-  .image {
+  .image_container {
     --tiles: 5;
   }
 }
 @media (min-width:1100px) {
-  .image {
+  .image_container {
     --tiles: 6;
   }
 }
 @media (min-width:1300px) {
-  .image {
+  .image_container {
     --tiles: 7;
   }
 }
 @media (min-width:1500px) {
-  .image {
+  .image_container {
     --tiles: 8;
   }
 }
