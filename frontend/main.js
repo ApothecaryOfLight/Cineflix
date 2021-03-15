@@ -31,11 +31,14 @@ function launch_movie( inMovieName ) {
 const mouse_tracking = {
   "last_move": 0,
   x_pos: 0,
-  y_pos: 0
+  y_pos: 0,
+  timer: null
 }
 
 function check_mouse( mouse_event ) {
 //console.dir( mouse_event );
+/*Rememder screen_x/y, test against screen dimensions,
+if inside screen, wait longer to hide X. */
   mouse_tracking.last_move = Date.now();
   const exit_button = document.getElementById("exit_button");
   exit_button.style.display = "inline";
@@ -65,11 +68,14 @@ function attach_exit_button() {
   window.addEventListener( 'touchmove', check_toucher );
   window.addEventListener( 'touchstart', check_toucher );
 
-  window.setInterval( is_mouse_gone, 500 );
+  mouse_tracking.timer = window.setInterval( is_mouse_gone, 500 );
 }
 
 function exit_movie() {
-  
+  const video_container = document.getElementById("video_container");
+  const video_player = document.getElementById("video_player");
+  video_container.style.display = "none";
+  video_player.pause();
 }
 
 function compose_scrollable( inScrollables ) {
