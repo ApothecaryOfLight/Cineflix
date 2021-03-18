@@ -93,8 +93,19 @@ body {
   right: 10px;
   top: 10px;
   color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .overlay {
   position: absolute;
   z-index: 5;
+}
+
+.expandable_poster {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: purple;
 }

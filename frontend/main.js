@@ -82,6 +82,7 @@ function compose_scrollable( inScrollables ) {
   let dom = "";
   inScrollables.forEach( (item) => {
     dom += "<div class=\"image_container\">";
+    dom += "<div class=\"expandable_poster\"></div>";
     dom += "<img src=\"/images/" + item.picture + "\" " +
     "class=\'image\' " +
     "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
