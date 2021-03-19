@@ -11,6 +11,14 @@ body {
   overflow-x: hidden;
 }
 
+.title {
+  color: white;
+  width: 100vw;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 5em;
+}
+
 #video_container {
   display: none;
   width: 100%;

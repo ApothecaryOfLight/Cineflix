@@ -19,10 +19,25 @@ function get_image( image_name ) {
   myimage.src = "/images/" + image_name + ".jpg";
 }
 
+function show_movie_interface() {
+  const posters = document.getElementById("scrollables_container");
+  const movie = document.getElementById("video_container");
+  posters.style.display = "none";
+  movie.style.display = "block";
+}
+
+function show_poster_interface() {
+  const posters = document.getElementById("scrollables_container");
+  const movie = document.getElementById("video_container");
+  movie.style.display = "none";
+  posters.style.display = "flex";
+}
+
 function launch_movie( inMovieName ) {
-  const video_container = document.getElementById("video_container");
+  show_movie_interface();
+//  const video_container = document.getElementById("video_container");
   const video_player = document.getElementById("video_player");
-  video_container.style.display = "block";
+//  video_container.style.display = "block";
   video_player.src = 'http://54.218.114.68:3000/film/' + inMovieName;
   video_player.play();
   attach_exit_button();
@@ -72,10 +87,11 @@ function attach_exit_button() {
 }
 
 function exit_movie() {
-  const video_container = document.getElementById("video_container");
+//  const video_container = document.getElementById("video_container");
   const video_player = document.getElementById("video_player");
-  video_container.style.display = "none";
+//  video_container.style.display = "none";
   video_player.pause();
+  show_poster_interface();
 }
 
 const posters = [];
