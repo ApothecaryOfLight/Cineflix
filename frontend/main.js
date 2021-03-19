@@ -85,6 +85,9 @@ function scroll_left( inRowId ) {
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
   posters[inRowId].scroll_pos += window.innerWidth;
+  if( posters[inRowId].scroll_pos >= 0 ) {
+    posters[inRowId].scroll_pos = 0;
+  }
   const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
   scrollable.style.transform = trans;
 }
@@ -94,6 +97,21 @@ function scroll_right( inRowId ) {
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
   posters[inRowId].scroll_pos -= window.innerWidth;
+
+  const computed = window.getComputedStyle( scrollable );
+  const width = computed.getPropertyValue( 'width' );
+
+  const margin_x = posters[inRowId].scroll_pos*-1;
+  const window_width = window.innerWidth;
+  let scrollable_width = computed.getPropertyValue( 'width' );
+  scrollable_width = scrollable_width.slice(0,-2);
+  const max_margin_x = window_width - scrollable_width;
+
+  //TODO: Calculate 80 dynamically.
+  if( margin_x + window_width > scrollable_width ) {
+    posters[inRowId].scroll_pos = max_margin_x - 80;
+  }
+
   const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
   scrollable.style.transform = trans;
 }
