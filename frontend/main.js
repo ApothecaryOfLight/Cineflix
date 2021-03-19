@@ -10,7 +10,7 @@ function get_movies() {
   ).then( response => response.json() )
   .then( json => {
     console.dir( json );
-    compose_scrollable( json );
+    compose_scrollable( 1, json );
   });
 }
 
@@ -78,8 +78,60 @@ function exit_movie() {
   video_player.pause();
 }
 
-function compose_scrollable( inScrollables ) {
-  let dom = "";
+const posters = [];
+
+function scroll_left( inRowId ) {
+  console.log( "scroll_left: " + inRowId );
+  const scrollable_name = "scrollable_" + inRowId;
+  const scrollable = document.getElementById( scrollable_name );
+  posters[inRowId].scroll_pos += window.innerWidth;
+  const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
+  scrollable.style.transform = trans;
+}
+
+function scroll_right( inRowId ) {
+  console.log( "scroll_right: " + inRowId );
+  const scrollable_name = "scrollable_" + inRowId;
+  const scrollable = document.getElementById( scrollable_name );
+  posters[inRowId].scroll_pos -= window.innerWidth;
+  const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
+  scrollable.style.transform = trans;
+}
+
+function composeLeftScroll( inRowId ) {
+  let dom = "<div class=\"left_scroll\""
+  dom += " onclick=\"scroll_left(\'" + inRowId + "\');\" ";
+  dom += ">";
+  dom += "</div>";
+  return dom;
+}
+function composeRightScroll( inRowId ) {
+  let dom = "<div class=\"right_scroll\""
+  dom += " onclick=\"scroll_right(\'" + inRowId + "\');\" ";
+  dom += ">";
+  dom += "</div>";
+  return dom;
+}
+function composePoster( inRowId, inPos, inMovieData ) {
+  
+}
+function composeExpandable( inRowId, inPos, inMovieData ) {
+  
+}
+
+//function composeScrollableClass
+
+function compose_scrollable( inRowID, inScrollables ) {
+//  let dom = "<div class=\"left_scroll\"></div>";
+
+  posters[inRowID] = inScrollables;
+  posters[inRowID].scroll_num = 0;
+  posters[inRowID].scroll_pos = 0;
+
+  let dom = composeLeftScroll( inRowID );
+  dom += "<div id=\"scrollable_" + inRowID + "\"";
+  dom += "class=\"scrollable\"";
+  dom += ">";
   inScrollables.forEach( (item) => {
     dom += "<div class=\"image_container\">";
     dom += "<div class=\"expandable_poster\"></div>";
@@ -89,8 +141,13 @@ function compose_scrollable( inScrollables ) {
     "/>";
     dom += "</div>";
   });
+  dom += "</div>";
+//  dom += "<div class=\"right_scroll\"></div>";
+  dom += composeRightScroll( inRowID );
   const cont = document.getElementById("scrollables_container");
   cont.innerHTML = dom;
-  const contB = document.getElementById("scrollables_containerB");
-  contB.innerHTML = dom;
+/*  const contB = document.getElementById("scrollables_containerB");
+  contB.innerHTML = dom;*/
 }
+
+
