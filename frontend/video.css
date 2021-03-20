@@ -39,6 +39,10 @@ body {
   max-width: 100%;
   max-height: 100%;
 }
+.expandable_image {
+  width: 300px;
+  height: auto;
+}
 .image_container {
   --tiles: 5;
   width: calc( (( 100vw - 6vw ) / var(--tiles)) );
@@ -120,11 +124,15 @@ body {
   width: 10px;
   height: 10px;
   background: purple;
+  display: none;
+  background: #202020;
+  color: white;
+  border-radius: 21px;
 }
-.expandable_poster:hover {
+/*.expandable_poster:hover {
   width: 210px;
   height: 210px;
-}
+}*/
 
 .left_scroll {
   position: absolute;

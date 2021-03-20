@@ -130,12 +130,14 @@ function scroll_right( inRowId ) {
   scrollable.style.transform = trans;
 }
 
+//TODO: Set scroll bars dynamically.
 function adjustScrollbars() {
   const scrollables_dom = document.getElementById("scrollables_container");
   const scrollables = window.getComputedStyle( scrollables_dom );
-console.dir( scrollables );
   const height = scrollables.getPropertyValue('height');
-  console.log( height );
+  //This is 0 because it's being checked before the element
+  //is inflated. Run an adjustment function after the rest
+  // of the dom is composed and rendered
 }
 
 function composeLeftScroll( inRowId ) {
@@ -146,10 +148,6 @@ function composeLeftScroll( inRowId ) {
   dom += "\<";
   dom += "</div>";
   dom += "</div>";
-  //This is 0 because it's being checked before the element
-  //is inflated. Run an adjustment function after the rest
-  // of the dom is composed and rendered
-
   return dom;
 }
 function composeRightScroll( inRowId ) {
@@ -166,7 +164,32 @@ function composePoster( inRowId, inPos, inMovieData ) {
   
 }
 function composeExpandable( inRowId, inPos, inMovieData ) {
-  
+  let dom = "<div class=\"expandable_poster\"";
+  dom += " id=\"" + inRowId + "_" + inMovieData.file_name + "\" ";
+  dom += ">";
+  dom += "<img src=\"/images/" + inMovieData.picture + "\" " +
+  "class=\'expandable_image\' " +
+  "onclick=\"launch_movie(\'" + inMovieData.file_name + "\');\"" +
+  "/>";
+console.dir( inMovieData );
+  dom += "<br>";
+  dom += "<br>" + inMovieData.name +
+    "<br>" + inMovieData.genre + " " + inMovieData.year +
+    "<br>" + inMovieData.description + "<br><br>";
+  dom += "</div>";
+  return dom;
+}
+
+function mouseOverPoster( inRowID, inPos, file_name ) {
+  const expandable_name = inRowID + "_" + file_name;
+  const expandable = document.getElementById( expandable_name );
+  expandable.style.display = "block";
+  expandable.style.width = "300px";
+  expandable.style.height = "auto";
+  expandable.addEventListener( "mouseleave", (event) =>  {
+    const expandable = document.getElementById( expandable_name );
+    expandable.style.display = "none";
+  });
 }
 
 //function composeScrollableClass
@@ -181,21 +204,23 @@ function compose_scrollable( inRowID, inScrollables ) {
   dom += "class=\"scrollable\"";
   dom += ">";
   inScrollables.forEach( (item) => {
-    dom += "<div class=\"image_container\">";
-    dom += "<div class=\"expandable_poster\"></div>";
+    dom += "<div class=\"image_container\"" + 
+    "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
+    "onmouseover=\"mouseOverPoster(" + 
+    inRowID + ", " +  0 + ", \'" + item.file_name + "\')\" " +
+    ">";
+
+    dom += composeExpandable( inRowID, 0, item );
+
     dom += "<img src=\"/images/" + item.picture + "\" " +
     "class=\'image\' " +
-    "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
     "/>";
     dom += "</div>";
   });
   dom += "</div>";
-//  dom += "<div class=\"right_scroll\"></div>";
   dom += composeRightScroll( inRowID );
   const cont = document.getElementById("scrollables_container");
   cont.innerHTML = dom;
-/*  const contB = document.getElementById("scrollables_containerB");
-  contB.innerHTML = dom;*/
 
   adjustScrollbars();
 }
