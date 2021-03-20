@@ -59,7 +59,6 @@ body {
   flex-direction: row;
   margin-left: calc((( 100vw - 6vw ) / var(--tiles)) / 8 );
   margin-right: calc((( 100vw - 6vw ) / var(--tiles)) / 8 );
-  margin-top: 35px;
   width: fit-content;
   transition: transform 1s;
 }
@@ -130,16 +129,30 @@ body {
 .left_scroll {
   position: absolute;
   left: 0px;
-  width: 10px;
-  height: 10px;
-  background: cyan;
+  width: 35px;
+  height: 280px;
   z-index: 50;
+  background: #000000CC;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .right_scroll {
   position: absolute;
   right: 0px;
-  width: 10px;
-  height: 10px;
-  background: cyan;
+  width: 35px;
+  height: 280px;
   z-index: 50;
+  background: #000000CC;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -35,9 +35,7 @@ function show_poster_interface() {
 
 function launch_movie( inMovieName ) {
   show_movie_interface();
-//  const video_container = document.getElementById("video_container");
   const video_player = document.getElementById("video_player");
-//  video_container.style.display = "block";
   video_player.src = 'http://54.218.114.68:3000/film/' + inMovieName;
   video_player.play();
   attach_exit_button();
@@ -132,17 +130,35 @@ function scroll_right( inRowId ) {
   scrollable.style.transform = trans;
 }
 
+function adjustScrollbars() {
+  const scrollables_dom = document.getElementById("scrollables_container");
+  const scrollables = window.getComputedStyle( scrollables_dom );
+console.dir( scrollables );
+  const height = scrollables.getPropertyValue('height');
+  console.log( height );
+}
+
 function composeLeftScroll( inRowId ) {
   let dom = "<div class=\"left_scroll\""
   dom += " onclick=\"scroll_left(\'" + inRowId + "\');\" ";
   dom += ">";
+  dom += "<div class=\"left_scroll_container\">";
+  dom += "\<";
   dom += "</div>";
+  dom += "</div>";
+  //This is 0 because it's being checked before the element
+  //is inflated. Run an adjustment function after the rest
+  // of the dom is composed and rendered
+
   return dom;
 }
 function composeRightScroll( inRowId ) {
   let dom = "<div class=\"right_scroll\""
   dom += " onclick=\"scroll_right(\'" + inRowId + "\');\" ";
   dom += ">";
+  dom += "<div class=\"right_scroll_container\">";
+  dom +="\>";
+  dom += "</div>";
   dom += "</div>";
   return dom;
 }
@@ -156,8 +172,6 @@ function composeExpandable( inRowId, inPos, inMovieData ) {
 //function composeScrollableClass
 
 function compose_scrollable( inRowID, inScrollables ) {
-//  let dom = "<div class=\"left_scroll\"></div>";
-
   posters[inRowID] = inScrollables;
   posters[inRowID].scroll_num = 0;
   posters[inRowID].scroll_pos = 0;
@@ -182,6 +196,8 @@ function compose_scrollable( inRowID, inScrollables ) {
   cont.innerHTML = dom;
 /*  const contB = document.getElementById("scrollables_containerB");
   contB.innerHTML = dom;*/
+
+  adjustScrollbars();
 }
 
 
