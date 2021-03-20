@@ -9,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  height: 1600px;
 }
 
 .title {
@@ -67,6 +66,7 @@ body {
   flex-direction: column;
 /*  align-items: center;*/
   margin-top: 50px;
+  margin-bottom: 200px;
 }
 .scrollable_container {
   display: flex;

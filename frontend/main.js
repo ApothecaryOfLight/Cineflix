@@ -21,6 +21,8 @@ function get_image( image_name ) {
 function show_movie_interface() {
   const posters = document.getElementById("scrollables_container");
   const movie = document.getElementById("video_container");
+  const title = document.getElementById("title");
+  title.style.display = "none";
   posters.style.display = "none";
   movie.style.display = "block";
 }
@@ -28,6 +30,8 @@ function show_movie_interface() {
 function show_poster_interface() {
   const posters = document.getElementById("scrollables_container");
   const movie = document.getElementById("video_container");
+  const title = document.getElementById("title");
+  title.style.display = "block";
   movie.style.display = "none";
   posters.style.display = "flex";
 }
@@ -120,9 +124,9 @@ function scroll_right( inRowId ) {
   scrollable_width = scrollable_width.slice(0,-2);
   const max_margin_x = window_width - scrollable_width;
 
-  //TODO: Calculate 80 dynamically.
+  //TODO: Calculate 180 dynamically.
   if( margin_x + window_width > scrollable_width ) {
-    posters[inRowId].scroll_pos = max_margin_x - 80;
+    posters[inRowId].scroll_pos = max_margin_x - 180;
   }
 
   const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
