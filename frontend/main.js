@@ -9,8 +9,7 @@ function get_movies() {
     }
   ).then( response => response.json() )
   .then( json => {
-    console.dir( json );
-    compose_scrollable( 1, json );
+    compose_scrollables( json );
   });
 }
 
@@ -171,7 +170,6 @@ function composeExpandable( inRowId, inPos, inMovieData ) {
   "class=\'expandable_image\' " +
   "onclick=\"launch_movie(\'" + inMovieData.file_name + "\');\"" +
   "/>";
-console.dir( inMovieData );
   dom += "<br>";
   dom += "<br>" + inMovieData.name +
     "<br>" + inMovieData.genre + " " + inMovieData.year +
@@ -194,19 +192,27 @@ function mouseOverPoster( inRowID, inPos, file_name ) {
 
 //function composeScrollableClass
 
+function compose_scrollables( inScrollables ) {
+  compose_scrollable( 1, inScrollables );
+  compose_scrollable( 2, inScrollables );
+  compose_scrollable( 3, inScrollables );
+  compose_scrollable( 4, inScrollables );
+}
+
 function compose_scrollable( inRowID, inScrollables ) {
   posters[inRowID] = inScrollables;
   posters[inRowID].scroll_num = 0;
   posters[inRowID].scroll_pos = 0;
 
-  let dom = composeLeftScroll( inRowID );
+  let dom = "<div class=\"scrollable_container\">";
+  dom += composeLeftScroll( inRowID );
   dom += "<div id=\"scrollable_" + inRowID + "\"";
   dom += "class=\"scrollable\"";
   dom += ">";
   inScrollables.forEach( (item) => {
-    dom += "<div class=\"image_container\"" + 
+    dom += "<div class=\"image_container\"" +
     "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
-    "onmouseover=\"mouseOverPoster(" + 
+    "onmouseover=\"mouseOverPoster(" +
     inRowID + ", " +  0 + ", \'" + item.file_name + "\')\" " +
     ">";
 
@@ -219,10 +225,11 @@ function compose_scrollable( inRowID, inScrollables ) {
   });
   dom += "</div>";
   dom += composeRightScroll( inRowID );
+  dom += "</div>";
   const cont = document.getElementById("scrollables_container");
-  cont.innerHTML = dom;
+  cont.innerHTML = cont.innerHTML + "<br>" + dom;
 
-  adjustScrollbars();
+//  adjustScrollbars();
 }
 
 
