@@ -130,10 +130,11 @@ function scroll_right( inRowId ) {
 }
 
 //TODO: Set scroll bars dynamically.
-function adjustScrollbars() {
+function adjustScrollbars( inRowID ) {
   const scrollables_dom = document.getElementById("scrollables_container");
   const scrollables = window.getComputedStyle( scrollables_dom );
   const height = scrollables.getPropertyValue('height');
+console.log( height );
   //This is 0 because it's being checked before the element
   //is inflated. Run an adjustment function after the rest
   // of the dom is composed and rendered
@@ -229,7 +230,7 @@ function compose_scrollable( inRowID, inScrollables ) {
   const cont = document.getElementById("scrollables_container");
   cont.innerHTML = cont.innerHTML + "<br>" + dom;
 
-//  adjustScrollbars();
+  adjustScrollbars( inRowID );
 }
 
 

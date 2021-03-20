@@ -142,6 +142,7 @@ body {
   background: #202020;
   color: white;
   border-radius: 21px;
+  z-index: 500;
 }
 /*.expandable_poster:hover {
   width: 210px;
@@ -149,10 +150,12 @@ body {
 }*/
 
 .left_scroll {
-  position: absolute;
+  position: sticky;
   left: 0px;
-  width: 35px;
-  height: 280px;
+  width: 65px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
   z-index: 50;
   background: #000000CC;
   color: white;
@@ -164,10 +167,12 @@ body {
   justify-content: center;
 }
 .right_scroll {
-  position: absolute;
+  position: sticky;
   right: 0px;
-  width: 35px;
-  height: 280px;
+  width: 65px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
   z-index: 50;
   background: #000000CC;
   color: white;
