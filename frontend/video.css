@@ -155,7 +155,6 @@ body {
   width: 65px;
   padding-left: 15px;
   padding-right: 15px;
-  height: 100%;
   z-index: 50;
   background: #000000CC;
   color: white;
@@ -165,6 +164,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 501;
 }
 .right_scroll {
   position: sticky;
@@ -172,7 +172,6 @@ body {
   width: 65px;
   padding-left: 15px;
   padding-right: 15px;
-  height: 100%;
   z-index: 50;
   background: #000000CC;
   color: white;
@@ -182,4 +181,5 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 501;
 }
