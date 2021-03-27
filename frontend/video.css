@@ -133,6 +133,13 @@ body {
   z-index: 5;
 }
 
+.scrollable_title {
+  font-size: 2rem;
+  color: white;
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+
 .expandable_poster {
   position: absolute;
   width: 10px;

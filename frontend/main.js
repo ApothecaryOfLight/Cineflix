@@ -52,7 +52,6 @@ const mouse_tracking = {
 }
 
 function check_mouse( mouse_event ) {
-//console.dir( mouse_event );
 /*Rememder screen_x/y, test against screen dimensions,
 if inside screen, wait longer to hide X. */
   mouse_tracking.last_move = Date.now();
@@ -98,7 +97,6 @@ function exit_movie() {
 const posters = [];
 
 function scroll_left( inRowId ) {
-  console.log( "scroll_left: " + inRowId );
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
   posters[inRowId].scroll_pos += window.innerWidth;
@@ -110,7 +108,6 @@ function scroll_left( inRowId ) {
 }
 
 function scroll_right( inRowId ) {
-  console.log( "scroll_right: " + inRowId );
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
   posters[inRowId].scroll_pos -= window.innerWidth;
@@ -122,7 +119,10 @@ function scroll_right( inRowId ) {
   const window_width = window.innerWidth;
   let scrollable_width = computed.getPropertyValue( 'width' );
   scrollable_width = scrollable_width.slice(0,-2);
-  const max_margin_x = window_width - scrollable_width;
+  const max_margin_x = Math.min(
+    window_width - scrollable_width,
+    scrollable_width - 180
+  );
 
   //TODO: Calculate 180 dynamically.
   if( margin_x + window_width > scrollable_width ) {
@@ -138,7 +138,6 @@ function adjustScrollbars( inRowID ) {
   const scrollables_dom = document.getElementById("scrollables_container");
   const scrollables = window.getComputedStyle( scrollables_dom );
   const height = scrollables.getPropertyValue('height');
-console.log( height );
   //This is 0 because it's being checked before the element
   //is inflated. Run an adjustment function after the rest
   // of the dom is composed and rendered
@@ -197,19 +196,31 @@ function mouseOverPoster( inRowID, inPos, file_name ) {
 
 //function composeScrollableClass
 
-function compose_scrollables( inScrollables ) {
-  compose_scrollable( 1, inScrollables );
-  compose_scrollable( 2, inScrollables );
-  compose_scrollable( 3, inScrollables );
-  compose_scrollable( 4, inScrollables );
+function filter_scrollable( inScrollable, genre ) {
+  const return_obj = [];
+  for( const key in inScrollable ) {
+    if( inScrollable[key].genre == genre ) {
+      return_obj[key] = inScrollable[key];
+    }
+  }
+  return return_obj;
 }
 
-function compose_scrollable( inRowID, inScrollables ) {
+function compose_scrollables( inScrollables ) {
+  console.dir( inScrollables );
+  compose_scrollable( 1, inScrollables, "Movies" );
+  compose_scrollable( 2, filter_scrollable( inScrollables, "Comedy" ), "Comedy" );
+  compose_scrollable( 3, filter_scrollable( inScrollables, "Horror" ), "Horror" );
+  compose_scrollable( 4, filter_scrollable( inScrollables, "Western" ), "Western" );
+}
+
+function compose_scrollable( inRowID, inScrollables, title ) {
   posters[inRowID] = inScrollables;
   posters[inRowID].scroll_num = 0;
   posters[inRowID].scroll_pos = 0;
 
-  let dom = "<div class=\"scrollable_container\">";
+  let dom = "<div class=\"scrollable_title\">" + title + "</div><br>";
+  dom += "<div class=\"scrollable_container\">";
   dom += composeLeftScroll( inRowID );
   dom += "<div id=\"scrollable_" + inRowID + "\"";
   dom += "class=\"scrollable\"";
