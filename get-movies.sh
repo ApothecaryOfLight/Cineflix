@@ -52,3 +52,51 @@ if ! [ -f ./backend/movies/kids_auto_race_at_venice.txt ]; then
   curl https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/CC_Kid_Auto_Races_at_Venice_1914_%28poster%29.jpg/500px-CC_Kid_Auto_Races_at_Venice_1914_%28poster%29.jpg --output ./backend/movies/kids_auto_race_at_venice.jpg
   printf "{\"name\": \"Kids Auto Race At Venice\",\n\"picture\": \"kids_auto_race_at_venice.jpg\",\n\"year\": \"1914\",\n\"genre\": \"Comedy\",\n\"description\": \"Charlie Chaplin plays the Tramp, causing hijinks at a California race.\"}" > ./backend/movies/kids_auto_race_at_venice.txt
 fi
+
+if ! [ -f ./backend/movies/the_stranger.txt ]; then
+  curl https://ia800702.us.archive.org/14/items/TheStranger720p/TheStranger720p.mp4 --output ./backend/movies/the_stranger.mp4
+  curl https://upload.wikimedia.org/wikipedia/commons/7/71/The_Stranger_%281946_film_poster%29.jpg --output ./backend/movies/the_stranger.jpg
+  printf "{\"name\": \"The Stringer\",\n\"picture\": \"the_stranger.jpg\",\n\"year\": \"1946\",\n\"genre\": \"Drama\",\n\"description\": \"A Nazi hunter tracks a notorious war criminal to a Connecticut town. The Nazi has become a teacher at a presitgious prep school, the fiance of a daughter of a supreme court justice. How long can the charade last?\"}" >> ./backend/movies/the_stranger.txt
+fi
+
+if ! [ -f ./backend/movies/little_shop_of_horrors.txt ]; then
+  curl https://ia800209.us.archive.org/5/items/TheLittleShopOfHorrors1960/The-Little-Shop-of-Horrors_512kb.mp4 --output ./backend/movies/little_shop_of_horrors.mp4
+  curl https://upload.wikimedia.org/wikipedia/en/7/78/LittleShop.jpg --output ./backend/movies/little_shop_of_horrors.jpg
+  printf "{\"name\": \"The Little Shop of Horrors\",\n\"picture\": \"little_shop_of_horrors.jpg\",\n\"year\": \"1960\",\n\"genre\": \"Horror\",\n\"description\": \"A flower-shop, a blood-loving plant. What could go wrong?\"}" >> ./backend/movies/little_shop_of_horrors.txt
+fi
+
+if ! [ -f ./backend/movies/the_corpse_vanishes.txt ]; then
+  curl https://ia800300.us.archive.org/25/items/TheCorpseVanishes/TheCorpseVanishes_512kb.mp4 --output ./backend/movies/the_corpse_vanishes.mp4
+  curl https://en.wikipedia.org/wiki/The_Corpse_Vanishes#/media/File:Corpsevanishes.jpg --output ./backend/movies/the_corpse_vanishes.jpg
+  printf "{\"name\": \"The Corpse Vanishes\",\n\"picture\": \"the_corpse_vanishes.jpg\",\n\"year\": \"1942\",\n\"genre\": \"Horror\",\n\"description\": \"Newspaper reporter investigates a rash of dead brides.\"}" >> ./backend/movies/the_corpse_vanishes.txt
+fi
+
+if ! [ -f ./backend/movies/the_screaming_skull.txt ]; then
+  curl https://ia800502.us.archive.org/19/items/TheScreamingSkull1958/The-Screaming-Skull_512kb.mp4 --output ./backend/movies/the_screaming_skull.mp4
+  curl https://upload.wikimedia.org/wikipedia/commons/a/ab/Poster_for_The_Screaming_Skull.jpg --output ./backend/movies/the_screaming_skull.jpg
+  printf "{\"name\": \"The Screaming Skull\",\n\"picture\": \"the_screaming_skull.jpg\",\n\"year\": \"1958\",\n\"genre\": \"Horror\",\n\"description\": \"Newlyweds, are they haunted? Find out.\"}" >> ./backend/movies/the_screaming_skull.txt
+fi
+
+if ! [ -f ./backend/movies/the_vampire_bat.txt ]; then
+  curl https://ia800203.us.archive.org/7/items/TheVampireBat1933/the-vampire-bat-1933_512kb.mp4 --output ./backend/movies/the_vampire_bat.mp4
+  curl https://upload.wikimedia.org/wikipedia/commons/2/21/Vampirebat.jpg --output ./backend/movies/the_vampire_bat.jpg
+  printf "{\"name\": \"The Vampire Bat\",\n\"picture\": \"the_vampire_bat.jpg\",\n\"year\": \"1933\",\n\"genre\": \"Horror\",\n\"description\": \"Exsanguinated villagers, skeptical scientists, and a nefarious plot.\"}" >> ./backend/movies/the_vampire_bat.txt
+fi
+
+if ! [ -f ./backend/movies/charlie_chalpins_one_am.txt ]; then
+  curl https://ia800201.us.archive.org/24/items/CC_1916_08_07_One_A_M/CC_1916_08_07_One_A_M_512kb.mp4 --output ./backend/movies/charlie_chalpins_one_am.mp4
+  curl https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/One_A.M._poster.jpg/500px-One_A.M._poster.jpg --output ./backend/movies/charlie_chalpins_one_am.jpg
+  printf "{\"name\": \"Charlie Chaplin\'s One A.M.\",\n\"picture\": \"charlie_chalpins_one_am.jpg\",\n\"year\": \"1916\",\n\"genre\": \"Comedy\",\n\"description\": \"Charlie Chaplin is just a tired weatherman who wants to get some sleep. How hard can that be?\"}" >> ./backend/movies/charlie_chalpins_one_am.txt
+fi
+
+if ! [ -f ./backend/movies/the_vagabond.txt ]; then
+  curl https://publicdomainmovie.net/movie.php?id=CC_1916_07_10_TheVagabond&type=.mp4 --output ./backend/movies/the_vagabond.mp4
+  curl https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/The_Vagabond_%281916%29.jpg/500px-The_Vagabond_%281916%29.jpg --output ./backend/movies/the_vagabond.jpg
+  printf "{\"name\": \"Charlie Chaplin\'s Vagabond\",\n\"picture\": \"the_vagabond.jpg\",\n\"year\": \"1916\",\n\"genre\": \"Comedy\",\n\"description\": \"Charlie Chaplin\'s the Tramp character helps a young gril.\"}" >> ./backend/movies/the_vagabond.txt
+fi
+
+if ! [ -f ./backend/movies/college.txt ]; then
+  curl https://ia802700.us.archive.org/7/items/college/College_512kb.mp4 --output ./backend/movies/college.mp4
+  curl https://m.media-amazon.com/images/M/MV5BNTY3NGUyYzgtMWNjNi00ZWZhLTk5NDEtMWI0ZDcwMTRiMGY2XkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_.jpg --output ./backend/movies/college.jpg
+  printf "{\"name\": \"College\",\n\"picture\": \"college.jpg\",\n\"year\": \"1927\",\n\"genre\": \"Comedy\",\n\"description\": \"Buster Keaton goes to college to try to master sports.\"}" >> ./backend/movies/college.txt
+fi

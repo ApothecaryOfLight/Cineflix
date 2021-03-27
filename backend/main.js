@@ -13,6 +13,7 @@ function load_movie_data() {
     files.forEach( (file) => {
       //If the file ends in txt it is metadata.
       if( file.slice(-3) == "txt" ) {
+        console.log( "Loading " + file );
         //Read the metadata as JSON
         fs.readFile( './movies/' + file, 'utf8', async (error, data) => {
           const out_obj = JSON.parse( data );
@@ -21,6 +22,7 @@ function load_movie_data() {
           object_array.push( out_obj );
           //If all the files have been iterated over, launch
           if( object_array.length == files.length/3 ) {
+            console.log( "All files loaded." );
             launch_routes( object_array );
           }
         });
