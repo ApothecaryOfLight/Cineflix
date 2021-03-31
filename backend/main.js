@@ -100,6 +100,13 @@ app.get( "/film/:film_id", (req,res) => {
   videoStream.pipe(res);
 });
 
-app.listen( 3000, () => {
+var https = require('https');
+var privateKey = fs.readFileSync('/home/ubuntu/Cineflix/privkey.pem');
+var certificate = fs.readFileSync('/home/ubuntu/Cineflix/fullchain.pem');
+var credentials = {key: privateKey, cert: certificate};
+var server = https.createServer( credentials, app )
+
+
+server.listen( 3000, () => {
   console.log( "Listening on port 3000." );
 });
