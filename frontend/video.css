@@ -54,8 +54,8 @@ body {
 .image_container {
   --tiles: 5;
   width: calc( (( 100vw - 6vw ) / var(--tiles)) );
-  margin-left: 0.5%;
-  margin-right: 0.5%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,4 +189,13 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 501;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
