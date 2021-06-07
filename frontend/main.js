@@ -108,6 +108,7 @@ function scroll_left( inRowId ) {
 }
 
 function scroll_right( inRowId ) {
+console.log( "scroll right" );
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
   posters[inRowId].scroll_pos -= window.innerWidth;
@@ -126,7 +127,7 @@ function scroll_right( inRowId ) {
 
   //TODO: Calculate 180 dynamically.
   if( margin_x + window_width > scrollable_width ) {
-    posters[inRowId].scroll_pos = max_margin_x - 180;
+    posters[inRowId].scroll_pos = max_margin_x - 1800;
   }
 
   const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
@@ -147,7 +148,7 @@ function composeLeftScroll( inRowId ) {
   let dom = "<div class=\"left_scroll\""
   dom += " onclick=\"scroll_left(\'" + inRowId + "\');\" ";
   dom += ">";
-  dom += "<div class=\"left_scroll_container\">";
+  dom += "<div class=\"left_scroll_container noselect\">";
   dom += "\<";
   dom += "</div>";
   dom += "</div>";
@@ -157,7 +158,7 @@ function composeRightScroll( inRowId ) {
   let dom = "<div class=\"right_scroll\""
   dom += " onclick=\"scroll_right(\'" + inRowId + "\');\" ";
   dom += ">";
-  dom += "<div class=\"right_scroll_container\">";
+  dom += "<div class=\"right_scroll_container noselect\">";
   dom +="\>";
   dom += "</div>";
   dom += "</div>";
@@ -168,7 +169,7 @@ function composePoster( inRowId, inPos, inMovieData ) {
 }
 function composeExpandable( inRowId, inPos, inMovieData ) {
   let dom = "<div class=\"expandable_poster\"";
-  dom += " id=\"" + inRowId + "_" + inMovieData.file_name + "\" ";
+  dom += " id=\"" + inRowId + "_" + inPos + "\" ";
   dom += ">";
   dom += "<img src=\"/images/" + inMovieData.picture + "\" " +
   "class=\'expandable_image\' " +
@@ -182,8 +183,8 @@ function composeExpandable( inRowId, inPos, inMovieData ) {
   return dom;
 }
 
-function mouseOverPoster( inRowID, inPos, file_name ) {
-  const expandable_name = inRowID + "_" + file_name;
+function mouseOverPoster( inRowID, inPos ) {
+  const expandable_name = inRowID + "_" + inPos;
   const expandable = document.getElementById( expandable_name );
   expandable.style.display = "block";
   expandable.style.width = "300px";
@@ -207,7 +208,7 @@ function filter_scrollable( inScrollable, genre ) {
 }
 
 function compose_scrollables( inScrollables ) {
-  console.dir( inScrollables );
+//  console.dir( inScrollables );
   compose_scrollable( 1, inScrollables, "Movies" );
   compose_scrollable( 2, filter_scrollable( inScrollables, "Comedy" ), "Comedy" );
   compose_scrollable( 3, filter_scrollable( inScrollables, "Horror" ), "Horror" );
@@ -219,26 +220,48 @@ function compose_scrollable( inRowID, inScrollables, title ) {
   posters[inRowID].scroll_num = 0;
   posters[inRowID].scroll_pos = 0;
 
+  if( Object.keys( inScrollables ).length < 20 ) {
+    //console.log( Object.keys( inScrollables ).length );
+    //console.dir( inScrollables );
+    while( Object.keys( inScrollables ).length < 20 ) {
+      const length = Object.keys( inScrollables ).length;
+      for( let key in inScrollables ) {
+        //console.log( key );
+        //console.dir( inScrollables[key] );
+        let pos = Number(key) + Number(length);
+        inScrollables[pos] = {};
+        Object.assign(
+          inScrollables[pos],
+          inScrollables[key]
+        );
+      }
+    }
+  }
+
   let dom = "<div class=\"scrollable_title\">" + title + "</div><br>";
   dom += "<div class=\"scrollable_container\">";
   dom += composeLeftScroll( inRowID );
   dom += "<div id=\"scrollable_" + inRowID + "\"";
   dom += "class=\"scrollable\"";
   dom += ">";
-  inScrollables.forEach( (item) => {
+  for( let key in inScrollables ) {
+    const item = inScrollables[key];
+
     dom += "<div class=\"image_container\"" +
-    "onclick=\"launch_movie(\'" + item.file_name + "\');\"" +
+    "onclick=\"launch_movie(\'" +
+    item.file_name +
+    "\');\"" +
     "onmouseover=\"mouseOverPoster(" +
-    inRowID + ", " +  0 + ", \'" + item.file_name + "\')\" " +
+    inRowID + ", " + key + ")\" " +
     ">";
 
-    dom += composeExpandable( inRowID, 0, item );
+    dom += composeExpandable( inRowID, key, item );
 
     dom += "<img src=\"/images/" + item.picture + "\" " +
     "class=\'image\' " +
     "/>";
     dom += "</div>";
-  });
+  }
   dom += "</div>";
   dom += composeRightScroll( inRowID );
   dom += "</div>";

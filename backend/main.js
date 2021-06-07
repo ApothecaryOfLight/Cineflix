@@ -100,13 +100,23 @@ app.get( "/film/:film_id", (req,res) => {
   videoStream.pipe(res);
 });
 
-var https = require('https');
-var privateKey = fs.readFileSync('/home/ubuntu/Cineflix/privkey.pem');
-var certificate = fs.readFileSync('/home/ubuntu/Cineflix/fullchain.pem');
-var credentials = {key: privateKey, cert: certificate};
-var server = https.createServer( credentials, app )
 
+var https;
+var privateKey;
+var certificate;
+var credentials;
+var server;
 
-server.listen( 3000, () => {
-  console.log( "Listening on port 3000." );
-});
+if( process.argv[2] == "https" ) {
+  https = require('https');
+  privateKey = fs.readFileSync('/home/ubuntu/Cineflix/privkey.pem');
+  certificate = fs.readFileSync('/home/ubuntu/Cineflix/fullchain.pem');
+  credentials = {key: privateKey, cert: certificate};
+  server = https.createServer( credentials, app );
+
+  server.listen( 3000, () => {
+    console.log( "Listening on port 3000." );
+  });
+} else {
+  app.listen( 3000 );
+}
