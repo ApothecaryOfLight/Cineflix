@@ -67,7 +67,7 @@ fi
 
 if ! [ -f ./backend/movies/the_corpse_vanishes.txt ]; then
   curl https://ia800300.us.archive.org/25/items/TheCorpseVanishes/TheCorpseVanishes_512kb.mp4 --output ./backend/movies/the_corpse_vanishes.mp4
-  curl https://en.wikipedia.org/wiki/The_Corpse_Vanishes#/media/File:Corpsevanishes.jpg --output ./backend/movies/the_corpse_vanishes.jpg
+  curl https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Corpsevanishes.jpg/800px-Corpsevanishes.jpg --output ./backend/movies/the_corpse_vanishes.jpg
   printf "{\"name\": \"The Corpse Vanishes\",\n\"picture\": \"the_corpse_vanishes.jpg\",\n\"year\": \"1942\",\n\"genre\": \"Horror\",\n\"description\": \"Newspaper reporter investigates a rash of dead brides.\"}" >> ./backend/movies/the_corpse_vanishes.txt
 fi
 
