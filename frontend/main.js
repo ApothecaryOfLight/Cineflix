@@ -99,7 +99,7 @@ const posters = [];
 function scroll_left( inRowId ) {
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
-  posters[inRowId].scroll_pos += window.innerWidth;
+  posters[inRowId].scroll_pos += window.innerWidth - 150;
   if( posters[inRowId].scroll_pos >= 0 ) {
     posters[inRowId].scroll_pos = 0;
   }
@@ -111,7 +111,7 @@ function scroll_right( inRowId ) {
 console.log( "scroll right" );
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
-  posters[inRowId].scroll_pos -= window.innerWidth;
+  posters[inRowId].scroll_pos -= window.innerWidth - 150;
 
   const computed = window.getComputedStyle( scrollable );
   const width = computed.getPropertyValue( 'width' );
@@ -127,8 +127,10 @@ console.log( "scroll right" );
 
   //TODO: Calculate 180 dynamically.
   if( margin_x + window_width > scrollable_width ) {
-    posters[inRowId].scroll_pos = max_margin_x - 1800;
+    posters[inRowId].scroll_pos = max_margin_x - 180;
   }
+
+console.log( posters[inRowId].scroll_pos );
 
   const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
   scrollable.style.transform = trans;
