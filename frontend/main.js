@@ -108,7 +108,6 @@ function scroll_left( inRowId ) {
 }
 
 function scroll_right( inRowId ) {
-console.log( "scroll right" );
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
   posters[inRowId].scroll_pos -= window.innerWidth - 150;
@@ -129,8 +128,6 @@ console.log( "scroll right" );
   if( margin_x + window_width > scrollable_width ) {
     posters[inRowId].scroll_pos = max_margin_x - 180;
   }
-
-console.log( posters[inRowId].scroll_pos );
 
   const trans = "translateX(" + posters[inRowId].scroll_pos + "px)";
   scrollable.style.transform = trans;
@@ -223,19 +220,23 @@ function compose_scrollable( inRowID, inScrollables, title ) {
   posters[inRowID].scroll_pos = 0;
 
   if( Object.keys( inScrollables ).length < 20 ) {
-    //console.log( Object.keys( inScrollables ).length );
-    //console.dir( inScrollables );
+    console.dir( JSON.parse(JSON.stringify(inScrollables)) );
     while( Object.keys( inScrollables ).length < 20 ) {
       const length = Object.keys( inScrollables ).length;
       for( let key in inScrollables ) {
-        //console.log( key );
-        //console.dir( inScrollables[key] );
-        let pos = Number(key) + Number(length);
-        inScrollables[pos] = {};
-        Object.assign(
-          inScrollables[pos],
-          inScrollables[key]
-        );
+        console.log( "\n\nkey: " + key );
+        console.dir( inScrollables[key] );
+        console.log( "type: " + typeof(inScrollables[key]) );
+        console.log( "key_type: " + typeof(key) );
+        if( key != "scroll_num" && key != "scroll_pos" ) {
+          console.log( "key is not " + key );
+          let pos = Number(key) + Number(length);
+          inScrollables[pos] = {};
+          Object.assign(
+            inScrollables[pos],
+            inScrollables[key]
+          );
+        }
       }
     }
   }
@@ -247,22 +248,24 @@ function compose_scrollable( inRowID, inScrollables, title ) {
   dom += "class=\"scrollable\"";
   dom += ">";
   for( let key in inScrollables ) {
-    const item = inScrollables[key];
+    if( key != "scroll_num" && key != "scroll_pos" ) {
+      const item = inScrollables[key];
 
-    dom += "<div class=\"image_container\"" +
-    "onclick=\"launch_movie(\'" +
-    item.file_name +
-    "\');\"" +
-    "onmouseover=\"mouseOverPoster(" +
-    inRowID + ", " + key + ")\" " +
-    ">";
+      dom += "<div class=\"image_container\"" +
+      "onclick=\"launch_movie(\'" +
+      item.file_name +
+      "\');\"" +
+      "onmouseover=\"mouseOverPoster(" +
+      inRowID + ", " + key + ")\" " +
+      ">";
 
-    dom += composeExpandable( inRowID, key, item );
+      dom += composeExpandable( inRowID, key, item );
 
-    dom += "<img src=\"/images/" + item.picture + "\" " +
-    "class=\'image\' " +
-    "/>";
-    dom += "</div>";
+      dom += "<img src=\"/images/" + item.picture + "\" " +
+      "class=\'image\' " +
+      "/>";
+      dom += "</div>";
+    }
   }
   dom += "</div>";
   dom += composeRightScroll( inRowID );
