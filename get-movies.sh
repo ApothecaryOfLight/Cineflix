@@ -90,7 +90,7 @@ if ! [ -f ./backend/movies/charlie_chalpins_one_am.txt ]; then
 fi
 
 if ! [ -f ./backend/movies/the_vagabond.txt ]; then
-  curl https://publicdomainmovie.net/movie.php?id=CC_1916_07_10_TheVagabond&type=.mp4 --output ./backend/movies/the_vagabond.mp4
+  curl https://ia804601.us.archive.org/16/items/CC_1916_07_10_TheVagabond/CC_1916_07_10_TheVagabond.mp4 --output ./backend/movies/the_vagabond.mp4
   curl https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/The_Vagabond_%281916%29.jpg/500px-The_Vagabond_%281916%29.jpg --output ./backend/movies/the_vagabond.jpg
   printf "{\"name\": \"Charlie Chaplin\'s Vagabond\",\n\"picture\": \"the_vagabond.jpg\",\n\"year\": \"1916\",\n\"genre\": \"Comedy\",\n\"description\": \"Charlie Chaplin\'s the Tramp character helps a young gril.\"}" >> ./backend/movies/the_vagabond.txt
 fi

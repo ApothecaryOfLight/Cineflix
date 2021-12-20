@@ -10,6 +10,7 @@ function load_movie_data() {
   fs.readdir( './movies/', async (error,files) => {
     const object_array = [];
     //Iterate over each file
+    console.log( "Loading " + files.length/3 + " files." );
     files.forEach( (file) => {
       //If the file ends in txt it is metadata.
       if( file.slice(-3) == "txt" ) {
@@ -32,6 +33,7 @@ function load_movie_data() {
 }
 
 function launch_routes( movies ) {
+  console.log( "Launching routes." );
   app.get( "/get_movies", (req,res) => {
     res.send( movies );
   });
@@ -115,8 +117,9 @@ if( process.argv[2] == "https" ) {
   server = https.createServer( credentials, app );
 
   server.listen( 3000, () => {
-    console.log( "Listening on port 3000." );
+    console.log( "Listening on port 3000, secure for prod." );
   });
 } else {
   app.listen( 3000 );
+  console.log( "Listening on port 3000, unsecured for dev." );
 }
