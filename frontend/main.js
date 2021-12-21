@@ -39,7 +39,7 @@ function show_poster_interface() {
 function launch_movie( inMovieName ) {
   show_movie_interface();
   const video_player = document.getElementById("video_player");
-  video_player.src = 'https://cineflix.video:3000/film/' + inMovieName;
+  video_player.src = 'http://cineflix.video:3000/film/' + inMovieName;
   video_player.play();
   attach_exit_button();
 }

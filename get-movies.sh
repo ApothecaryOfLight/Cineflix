@@ -6,7 +6,7 @@ if ! [ -f ./backend/movies/the_goat.txt ]; then
 fi
 
 if ! [ -f ./backend/movies/a_night_in_the_show.txt ]; then
-  curl https://ia802300.us.archive.org/0/items/ANightintheShow/A_Night_in_the_Show_512kb.mp4 --output ./backend/movies/a_night_in_the_show.mp4
+  curl https://ia804507.us.archive.org/13/items/ANightintheShow/A_Night_in_the_Show_512kb.mp4 --output ./backend/movies/a_night_in_the_show.mp4
   curl https://upload.wikimedia.org/wikipedia/commons/c/c2/A_Night_in_the_Show_%28poster%29.jpg --output ./backend/movies/a_night_in_the_show.jpg
   printf "{\"name\": \"A Night in the Show\",\n\"picture\": \"a_night_in_the_show.jpg\",\n\"year\": \"1915\",\n\"genre\": \"Comedy\",\n\"description\": \"Charlie Chaplin directs and stars in two roles featuring shenanigans at the theater.\"}" >> ./backend/movies/a_night_in_the_show.txt
 fi
