@@ -111,8 +111,8 @@ var server;
 
 if( process.argv[2] == "https" ) {
   https = require('https');
-  privateKey = fs.readFileSync('/home/ubuntu/Cineflix/privkey.pem');
-  certificate = fs.readFileSync('/home/ubuntu/Cineflix/fullchain.pem');
+  privateKey = fs.readFileSync('../privkey.pem');
+  certificate = fs.readFileSync('../fullchain.pem');
   credentials = {key: privateKey, cert: certificate};
   server = https.createServer( credentials, app );
 

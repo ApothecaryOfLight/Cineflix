@@ -3,7 +3,7 @@ window.onload = () => {
 }
 
 function get_movies() {
-  fetch( 'http://cineflix.video:3000/get_movies',
+  fetch( 'https://cineflix.video:3000/get_movies',
     {
       method: 'GET'
     }
