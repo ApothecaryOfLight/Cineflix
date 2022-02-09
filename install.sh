@@ -27,8 +27,19 @@ else
   exit;
 fi
 
-if [[ "$install_mode" = "unified" ]];
+if [[ "$install_mode" = "standalone" ]];
 then
-  echo "Installing NGINX.";
-  ##install nginx, sql, nodejs, etc. here.
+  sudo apt-get upgrade -y sudo apt-get update -y
+
+  #==NODEJS==
+  curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+
+  #==NGINX==
+  sudo apt-get install nginx -y
+  sudo ufw allow 'Nginx HTTP'
+  sudo ufw allow ssh
+  sudo ufw enable
+
+  ##TODO: Configure NGINX.
 fi
