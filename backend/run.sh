@@ -1,1 +1,1 @@
-npx nodemon --watch . main.js
+npx nodemon --watch . main.js $1
