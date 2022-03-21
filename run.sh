@@ -1,1 +1,1 @@
-cd backend && run.sh "$1"
+cd backend && screen -S Cineflix -dm run.sh "$1"

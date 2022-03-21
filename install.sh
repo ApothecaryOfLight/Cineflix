@@ -11,8 +11,8 @@ then
   echo "Installing Cineflix and all dependencies.";
 
   #==NODEJS==
-  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
   sudo apt-get install -y nodejs
+  sudo apt-get install -y npm
   cd backend && npm i
 
   #==NGINX==
@@ -32,6 +32,3 @@ else
   echo "  install.sh unified";
   echo "    Will install just Cineflix, with all dependencies installed by the calling install script for UnifiedPortfolio.";
 fi
-
-##Set up Nginx route.
-cp frontend/cineflix.video.config /etc/nginx/sites-available/

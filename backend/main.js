@@ -109,7 +109,7 @@ var certificate;
 var credentials;
 var server;
 
-if( process.argv[2] == "https" ) {
+if( process.argv[2] == "prod" ) {
   https = require('https');
   privateKey = fs.readFileSync('../privkey.pem');
   certificate = fs.readFileSync('../fullchain.pem');
