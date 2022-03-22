@@ -11,6 +11,7 @@ else
   echo "    Will run Cineflix without an SSL/TSL Certificates.";
   echo "  run.sh prod";
   echo "    Will run Cineflix with SSL/TSL Certificates.";
+  exit -1
 fi
 
 cd backend && screen -dm -S Cineflix bash -c './run.sh "$1"'
