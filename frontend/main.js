@@ -3,7 +3,7 @@ window.onload = () => {
 }
 
 function get_movies() {
-  fetch( 'https://cineflix.video:3000/get_movies',
+  fetch( ip + '/get_movies',
     {
       method: 'GET'
     }
@@ -39,7 +39,7 @@ function show_poster_interface() {
 function launch_movie( inMovieName ) {
   show_movie_interface();
   const video_player = document.getElementById("video_player");
-  video_player.src = 'https://cineflix.video:3000/film/' + inMovieName;
+  video_player.src = ip + '/film/' + inMovieName;
   video_player.play();
   attach_exit_button();
 }
@@ -275,5 +275,3 @@ function compose_scrollable( inRowID, inScrollables, title ) {
 
   adjustScrollbars( inRowID );
 }
-
-

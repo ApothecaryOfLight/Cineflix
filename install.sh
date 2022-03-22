@@ -17,6 +17,8 @@ then
 
   #==NGINX==
   sudo apt-get install nginx -y
+  sudo ufw allow 8000
+  sudo ufw allow 3000
   sudo ufw allow 'Nginx HTTP'
   sudo ufw allow 'Nginx HTTPS'
   sudo ufw allow ssh
@@ -25,6 +27,8 @@ elif [[ "$1" = "unified" ]];
 then
   echo "Installing just Cineflix and NodeJS packages."
   cd backend && npm i
+  sudo ufw allow 8000
+  sudo ufw allow 3000
 else
   echo "Command line argument:";
   echo "  install.sh standalone";
