@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "${0%/*}"
 ## Install project.
 ## Command line argument:
 ##   install.sh standalone
