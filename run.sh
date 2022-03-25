@@ -1,8 +1,7 @@
 cd "${0%/*}"
 if [[ "$1" = "dev" ]];
 then
-  IP=$(hostname -I | xargs)
-  echo "const ip = \"ws://${IP}:3000\";" > ./frontend/ip_file.js
+  echo "const ip = \"ws://${2}:3000\";" > ./frontend/ip_file.js
 elif [[ "$1" = "prod" ]];
 then
   echo "const ip = \"wss://cineflix.video:3000\";" > ./frontend/ip_file.js
