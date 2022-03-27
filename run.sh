@@ -1,8 +1,8 @@
 cd "${0%/*}"
-if [[ "$1" = "dev" ]];
+if [[ "$1" = "http" ]];
 then
   echo "const ip = \"ws://${2}:3000\";" > ./frontend/ip_file.js
-elif [[ "$1" = "prod" ]];
+elif [[ "$1" = "https" ]];
 then
   echo "const ip = \"wss://cineflix.video:3000\";" > ./frontend/ip_file.js
 else
