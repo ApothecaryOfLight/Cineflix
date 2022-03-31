@@ -10,7 +10,7 @@ function load_movie_data() {
   fs.readdir( './movies/', async (error,files) => {
     const object_array = [];
     //Iterate over each file
-    console.log( "Loading " + files.length/3 + " files." );
+    console.log( "Loading " + files.length + " files." );
     files.forEach( (file) => {
       //If the file ends in txt it is metadata.
       if( file.slice(-3) == "txt" ) {
@@ -21,8 +21,9 @@ function load_movie_data() {
           const file_name = file.slice( 0, -4 );
           out_obj.file_name = file_name;
           object_array.push( out_obj );
+          console.dir( out_obj );
           //If all the files have been iterated over, launch
-          if( object_array.length == files.length/3 ) {
+          if( object_array.length == files.length ) {
             console.log( "All files loaded." );
             launch_routes( object_array );
           }
@@ -35,11 +36,11 @@ function load_movie_data() {
 function launch_routes( movies ) {
   console.log( "Launching routes." );
   app.get( "/get_movies", (req,res) => {
+    console.log( "Request for get_movies." );
     res.send( movies );
   });
 }
 
-load_movie_data();
 
 app.get( "/film/:film_id", (req,res) => {
   //  Get the range requested by the client.
@@ -102,14 +103,13 @@ app.get( "/film/:film_id", (req,res) => {
   videoStream.pipe(res);
 });
 
-
 var https;
 var privateKey;
 var certificate;
 var credentials;
 var server;
 
-if( process.argv[2] == "prod" ) {
+if( process.argv[2] == "https" ) {
   https = require('https');
   privateKey = fs.readFileSync('../privkey.pem');
   certificate = fs.readFileSync('../fullchain.pem');
@@ -118,8 +118,10 @@ if( process.argv[2] == "prod" ) {
 
   server.listen( 3000, () => {
     console.log( "Listening on port 3000, secure for prod." );
+    load_movie_data();
   });
-} else {
+} else if( process.argv[2] == "http" ) {
   app.listen( 3000 );
   console.log( "Listening on port 3000, unsecured for dev." );
+  load_movie_data();
 }

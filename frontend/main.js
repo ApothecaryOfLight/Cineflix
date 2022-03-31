@@ -25,6 +25,10 @@ function show_movie_interface() {
   title.style.display = "none";
   posters.style.display = "none";
   movie.style.display = "block";
+
+  movie.scrollIntoView({
+    block: 'center'
+  })
 }
 
 function show_poster_interface() {
@@ -39,7 +43,7 @@ function show_poster_interface() {
 function launch_movie( inMovieName ) {
   show_movie_interface();
   const video_player = document.getElementById("video_player");
-  video_player.src = ip + '/film/' + inMovieName;
+  video_player.src = inMovieName;
   video_player.play();
   attach_exit_button();
 }
@@ -170,9 +174,9 @@ function composeExpandable( inRowId, inPos, inMovieData ) {
   let dom = "<div class=\"expandable_poster\"";
   dom += " id=\"" + inRowId + "_" + inPos + "\" ";
   dom += ">";
-  dom += "<img src=\"/images/" + inMovieData.picture + "\" " +
+  dom += "<img src=\"" + inMovieData.poster + "\" " +
   "class=\'expandable_image\' " +
-  "onclick=\"launch_movie(\'" + inMovieData.file_name + "\');\"" +
+  "onclick=\"launch_movie(\'" + inMovieData.src + "\');\"" +
   "/>";
   dom += "<br>";
   dom += "<br>" + inMovieData.name +
@@ -194,8 +198,6 @@ function mouseOverPoster( inRowID, inPos ) {
   });
 }
 
-//function composeScrollableClass
-
 function filter_scrollable( inScrollable, genre ) {
   const return_obj = [];
   for( const key in inScrollable ) {
@@ -209,9 +211,9 @@ function filter_scrollable( inScrollable, genre ) {
 function compose_scrollables( inScrollables ) {
 //  console.dir( inScrollables );
   compose_scrollable( 1, inScrollables, "Movies" );
-  compose_scrollable( 2, filter_scrollable( inScrollables, "Comedy" ), "Comedy" );
+  /*compose_scrollable( 2, filter_scrollable( inScrollables, "Comedy" ), "Comedy" );
   compose_scrollable( 3, filter_scrollable( inScrollables, "Horror" ), "Horror" );
-  compose_scrollable( 4, filter_scrollable( inScrollables, "Western" ), "Western" );
+  compose_scrollable( 4, filter_scrollable( inScrollables, "Western" ), "Western" );*/
 }
 
 function compose_scrollable( inRowID, inScrollables, title ) {
@@ -219,9 +221,11 @@ function compose_scrollable( inRowID, inScrollables, title ) {
   posters[inRowID].scroll_num = 0;
   posters[inRowID].scroll_pos = 0;
 
-  if( Object.keys( inScrollables ).length < 20 ) {
+  console.dir( inScrollables );
+
+  /*if( Object.keys( inScrollables ).length < 1 ) {
     console.dir( JSON.parse(JSON.stringify(inScrollables)) );
-    while( Object.keys( inScrollables ).length < 20 ) {
+    while( Object.keys( inScrollables ).length < 1 ) {
       const length = Object.keys( inScrollables ).length;
       for( let key in inScrollables ) {
         console.log( "\n\nkey: " + key );
@@ -239,7 +243,7 @@ function compose_scrollable( inRowID, inScrollables, title ) {
         }
       }
     }
-  }
+  }*/
 
   let dom = "<div class=\"scrollable_title\">" + title + "</div><br>";
   dom += "<div class=\"scrollable_container\">";
@@ -248,12 +252,13 @@ function compose_scrollable( inRowID, inScrollables, title ) {
   dom += "class=\"scrollable\"";
   dom += ">";
   for( let key in inScrollables ) {
+    console.dir( inScrollables[key] );
     if( key != "scroll_num" && key != "scroll_pos" ) {
       const item = inScrollables[key];
 
       dom += "<div class=\"image_container\"" +
       "onclick=\"launch_movie(\'" +
-      item.file_name +
+      item.src +
       "\');\"" +
       "onmouseover=\"mouseOverPoster(" +
       inRowID + ", " + key + ")\" " +
@@ -261,7 +266,7 @@ function compose_scrollable( inRowID, inScrollables, title ) {
 
       dom += composeExpandable( inRowID, key, item );
 
-      dom += "<img src=\"/images/" + item.picture + "\" " +
+      dom += "<img src=\"" + item.poster + "\"" +
       "class=\'image\' " +
       "/>";
       dom += "</div>";
