@@ -1,0 +1,9 @@
+{
+    "name": "The Tramp",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_tramp.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Charlie_Chaplin_'The_Tramp'_-_Film_1915.webm.360p.vp9.webm",
+    "year": "1915",
+    "genre": "Comedy",
+    "description": "Charlie Chaplin&#39s Tramp character gets a starring role. The Tramp was a vagrant with a good heart, whose silly antics would sometimes clash with the authorities.",
+    "topic": "Charlie Chaplin"
+}

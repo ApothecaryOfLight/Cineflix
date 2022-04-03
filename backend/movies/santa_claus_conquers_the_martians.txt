@@ -1,0 +1,8 @@
+{
+    "name": "Santa Claus Conquers the Martians",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/santa_claus_conquers_the_martians.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Santa_Claus_Conquers_The_Martians.ogv.240p.vp9.webm",
+    "year": "1964",
+    "genre": "Science Fiction",
+    "description": "Regular entry on lists of worst films ever made, this sci-fi comedy became a holiday staple of Comedy Central in the 90&#39s, as well as Mystery Science Theater 3000."
+}

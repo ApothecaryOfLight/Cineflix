@@ -17,15 +17,19 @@ function load_movie_data() {
         console.log( "Loading " + file );
         //Read the metadata as JSON
         fs.readFile( './movies/' + file, 'utf8', async (error, data) => {
-          const out_obj = JSON.parse( data );
-          const file_name = file.slice( 0, -4 );
-          out_obj.file_name = file_name;
-          object_array.push( out_obj );
-          console.dir( out_obj );
-          //If all the files have been iterated over, launch
-          if( object_array.length == files.length ) {
-            console.log( "All files loaded." );
-            launch_routes( object_array );
+          try{
+            const out_obj = JSON.parse( data );
+            const file_name = file.slice( 0, -4 );
+            out_obj.file_name = file_name;
+            object_array.push( out_obj );
+            //console.dir( out_obj );
+            //If all the files have been iterated over, launch
+            if( object_array.length == files.length ) {
+              console.log( "All files loaded." );
+              launch_routes( object_array );
+            }
+          } catch( error ) {
+            console.error( error );
           }
         });
       }

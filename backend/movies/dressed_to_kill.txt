@@ -1,0 +1,9 @@
+{
+    "name": "Dressed to Kill",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/dressed_to_kill.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Dressed_to_Kill.webm",
+    "year": "1946",
+    "genre": "Mystery",
+    "description": "Sherlock Holmes movie based on two seperate Sherlock stories.",
+    "topic": "Sherlock Holmes"
+}

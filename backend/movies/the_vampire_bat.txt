@@ -1,0 +1,8 @@
+{
+    "name": "The Vampire Bat",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_vampire_bat.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/The_Vampire_Bat_(1933).webm",
+    "year": "1933",
+    "genre": "Horror",
+    "description": "Villagers dying of blood loss, with two puncture wounds in their necks. Is it a vampire? Let&#39s find out!"
+}

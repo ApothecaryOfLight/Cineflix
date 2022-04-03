@@ -1,0 +1,9 @@
+{
+    "name": "The Little Shop of Horrors",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_little_shop_of_horrors.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/The_Little_Shop_Of_Horrors.webm",
+    "year": "1960",
+    "genre": "Horror",
+    "description": "Horror comedy about a florist&#39s shop that hides a dark secret.",
+    "topic": "Horror-Comedy"
+}

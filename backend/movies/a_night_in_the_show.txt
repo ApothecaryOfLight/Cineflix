@@ -1,0 +1,9 @@
+{
+    "name": "A Night in the Show",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/a_night_in_the_show.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/A_Night_in_the_Show_(1915).webm.360p.vp9.webm",
+    "year": "1915",
+    "genre": "Comedy",
+    "description": "Charlie Chaplin spends a night at the theater.",
+    "topic": "Charlie Chaplin"
+}

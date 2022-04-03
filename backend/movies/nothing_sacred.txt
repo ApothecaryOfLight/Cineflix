@@ -1,0 +1,8 @@
+{
+    "name": "Nothing Sacred",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/nothing_scared.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Nothing_Sacred.webm",
+    "year": "1937",
+    "genre": "Comedy",
+    "description": "Screwball romantic comedy about a New York reporter and a woman seemingly dying of radium poisoning."
+}

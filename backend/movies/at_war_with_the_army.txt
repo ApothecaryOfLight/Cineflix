@@ -4,5 +4,5 @@
     "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/At_War_With_The_Army.webm",
     "year": "1950",
     "genre": "Comedy",
-    "description": "Jerry Lewis and another schmuck."
+    "description": "Dean Martin and Jerry Lewis star in a musical comedy film set a US Army base in Kentucky in WWII."
 }

@@ -1,0 +1,8 @@
+{
+    "name": "Road to Bali",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/road_to_bali.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Road_To_Bali.webm",
+    "year": "1952",
+    "genre": "Comedy",
+    "description": "Bing Crosby and Bob Hope star in the sixth of their \"Road to...\" movies, satirized today by Family Guy characters Brian and Stewie."
+}

@@ -1,0 +1,9 @@
+{
+    "name": "The Last Man on Earth",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_last_man_on_earth.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/LAST_MAN_ON_EARTH_with_Vincent_Price_1964_HD_-_CC_available.webm.360p.vp9.webm",
+    "year": "1964",
+    "genre": "Science Fiction",
+    "description": "Vincent Price stars in an adaptation of Richard Matheson&#39s I Am Legend.",
+    "topics": "Films based on I Am Legend"
+}

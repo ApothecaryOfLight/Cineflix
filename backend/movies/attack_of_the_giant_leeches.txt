@@ -1,0 +1,8 @@
+{
+    "name": "Attack of the Giant Leeches",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/attack_of_the_giant_leeches.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Attack_of_the_Giant_Leeches.webm",
+    "year": "1959",
+    "genre": "Horror",
+    "description": "A pair of man-eating, gigantic, intelligent leeches are living the Florida Everglades."
+}

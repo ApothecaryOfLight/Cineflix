@@ -1,0 +1,8 @@
+{
+    "name": "The Amazing Mr. X",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_amazing_mr_x.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Amazing_mr_x.webm",
+    "year": "1948",
+    "genre": "Horror",
+    "description": "A film about a spiritualist con, a popular practice in the US and Europe up through WWII."
+}

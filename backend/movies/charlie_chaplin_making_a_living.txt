@@ -1,0 +1,9 @@
+{
+    "name": "Making a Living",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/making_a_living.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Charlie_Chaplin_1914_Making_A_Living.ogv.240p.vp9.webm",
+    "year": "1914",
+    "genre": "Comedy",
+    "description": "Charlie Chaplin plays a swindler whose schemes go hilariously awry.",
+    "topic": "Charlie Chaplin"
+}

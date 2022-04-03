@@ -1,0 +1,8 @@
+{
+    "name": "Danger Lights",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/danger_lights.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Danger_Lights%2C_1930%2C_original_version.webm.360p.vp9.webm",
+    "year": "1930",
+    "genre": "Drama",
+    "description": "Romance and danger on the train tracks."
+}

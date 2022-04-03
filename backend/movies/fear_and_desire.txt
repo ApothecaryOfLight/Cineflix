@@ -1,0 +1,8 @@
+{
+    "name": "Fear and Desire",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/fear_and_desire.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Fear_and_Desire_(1953).webm.360p.vp9.webm",
+    "year": "1953",
+    "genre": "Drama",
+    "description": "Anti-war filmd by Stanley Kubrick, marking his directorial debut."
+}

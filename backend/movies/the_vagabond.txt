@@ -1,0 +1,9 @@
+{
+    "name": "The Vagabond",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_vagabond.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/The_Vagabond_(1916).webm.360p.vp9.webm",
+    "year": "1916",
+    "genre": "Romance",
+    "description": "Charlie Chaplin stars in a silent romantic comedy as the Tramp.",
+    "topic": "Charlie Chaplin"
+}

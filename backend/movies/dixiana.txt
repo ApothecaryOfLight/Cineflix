@@ -1,0 +1,8 @@
+{
+    "name": "Dixiana",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/dixiana.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Dixiana_(1930).webm.360p.vp9.webm",
+    "year": "1930",
+    "genre": "Comedy",
+    "description": "Antebellum musical comedy about romance at the circus and on the plantation. It&#39s probably pretty racist."
+}

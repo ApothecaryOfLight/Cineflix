@@ -1,0 +1,8 @@
+{
+    "name": "The Screaming Skull",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_screaming_skull.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/The_Screaming_Skull.webm.480p.vp9.webm",
+    "year": "1958",
+    "genre": "Horror",
+    "description": "A newlywed woman is convinced that she is being haunted by the ghost of her husband&#39s previous wife. Is she being gaslit? Is there really a ghost? Or is it both?"
+}

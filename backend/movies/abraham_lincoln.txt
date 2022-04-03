@@ -1,0 +1,8 @@
+{
+    "name": "Abraham Lincoln",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/abraham_lincoln.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Abraham_Lincoln_(1930).webm.360p.vp9.webm",
+    "year": "1930",
+    "genre": "Drama",
+    "description": "Biographical film directed by noted racist D. W. Griffith, the same director whose work was instrumental in the 2nd founding of the KKK. So there&#39s that."
+}

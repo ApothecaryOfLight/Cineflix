@@ -1,0 +1,9 @@
+{
+    "name": "Night of the Living Dead",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/night_of_the_living_dead.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Night_of_the_Living_Dead.webm",
+    "year": "1968",
+    "genre": "Horror",
+    "description": "George A. Romero&#39s infamous zombie film.",
+    "topics": "Films based on I Am Legend"
+}

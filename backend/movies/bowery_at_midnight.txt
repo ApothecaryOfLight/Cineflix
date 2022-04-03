@@ -1,0 +1,8 @@
+{
+    "name": "Bowery at Midnight",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/bowery_at_midnight.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Bowery_at_Midnight%2C_1942.ogv.240p.vp9.webm",
+    "year": "1942",
+    "genre": "Horror",
+    "description": "Bela Lugosi plays a psychology professor with dark secrets."
+}

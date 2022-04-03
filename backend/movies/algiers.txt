@@ -1,0 +1,8 @@
+{
+    "name": "Algiers",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/algiers.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Algiers.webm",
+    "year": "1938",
+    "genre": "Drama",
+    "description": "French Jewel thief Pepe le Moko is hiding out in the Casbah. Helped inspire the Warner Bros. character Pepe Le Pew, so brace yourself."
+}

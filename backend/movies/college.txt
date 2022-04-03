@@ -1,0 +1,8 @@
+{
+    "name": "College",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/college.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/College_(1927).webm.360p.vp9.webm",
+    "year": "1927",
+    "genre": "Comedy",
+    "description": "Buster Keaton goes to college."
+}

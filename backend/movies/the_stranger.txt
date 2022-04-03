@@ -1,0 +1,8 @@
+{
+    "name": "The Stranger",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_stranger.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/the_stranger.webm",
+    "year": "1946",
+    "genre": "Noir",
+    "description": "Orson Welles&#39 magisterial noir thriller starring Welles himself and Edward G. Robinson. Robinson plays a war crimes investigator who tracks a high-ranking Nazi to a small Connecticut college town of the rich and privileged."
+}

@@ -1,0 +1,8 @@
+{
+    "name": "A Farewell to Arms",
+    "poster": "https://cineflix-movies.s3.us-west-2.amazonaws.com/a_farewell_to_arms.jpg",
+    "src": "https://cineflix-movies.s3.us-west-2.amazonaws.com/Farewell_to_Arms%2C_1932.ogv.240p.vp9.webm",
+    "year": "1932",
+    "genre": "Romance",
+    "description": "A tragic romance based on one of Hemingway&#39s most famous books."
+}

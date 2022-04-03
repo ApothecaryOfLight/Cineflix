@@ -63,7 +63,6 @@ if inside screen, wait longer to hide X. */
   exit_button.style.display = "inline";
 }
 function check_toucher( touch_event ) {
-//console.dir( touch_event );
   mouse_tracking.last_move = Date.now();
   const exit_button = document.getElementById("exit_button");
   exit_button.style.display = "inline";
@@ -198,10 +197,10 @@ function mouseOverPoster( inRowID, inPos ) {
   });
 }
 
-function filter_scrollable( inScrollable, genre ) {
+function filter_scrollable( inScrollable, type, value ) {
   const return_obj = [];
   for( const key in inScrollable ) {
-    if( inScrollable[key].genre == genre ) {
+    if( inScrollable[key][type] == value ) {
       return_obj[key] = inScrollable[key];
     }
   }
@@ -209,41 +208,20 @@ function filter_scrollable( inScrollable, genre ) {
 }
 
 function compose_scrollables( inScrollables ) {
-//  console.dir( inScrollables );
-  compose_scrollable( 1, inScrollables, "Movies" );
-  /*compose_scrollable( 2, filter_scrollable( inScrollables, "Comedy" ), "Comedy" );
-  compose_scrollable( 3, filter_scrollable( inScrollables, "Horror" ), "Horror" );
-  compose_scrollable( 4, filter_scrollable( inScrollables, "Western" ), "Western" );*/
+  compose_scrollable( 1, filter_scrollable( inScrollables, "genre", "Drama" ), "Movies" );
+  compose_scrollable( 2, filter_scrollable( inScrollables, "genre", "Comedy" ), "Comedy" );
+  compose_scrollable( 3, filter_scrollable( inScrollables, "genre", "Horror" ), "Horror" );
+  compose_scrollable( 4, filter_scrollable( inScrollables, "genre", "Science Fiction" ), "Science Fiction" );
+  compose_scrollable( 5, filter_scrollable( inScrollables, "genre", "Fantasy" ), "Fantasy" );
+  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Charlie Chaplin" ), "Charlie Chaplin" );
+  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Horror-Comedy" ), "Horror-Comedy" );
+  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Sherlock Holmes" ), "Sherlock Holmes" );
 }
 
 function compose_scrollable( inRowID, inScrollables, title ) {
   posters[inRowID] = inScrollables;
   posters[inRowID].scroll_num = 0;
   posters[inRowID].scroll_pos = 0;
-
-  console.dir( inScrollables );
-
-  /*if( Object.keys( inScrollables ).length < 1 ) {
-    console.dir( JSON.parse(JSON.stringify(inScrollables)) );
-    while( Object.keys( inScrollables ).length < 1 ) {
-      const length = Object.keys( inScrollables ).length;
-      for( let key in inScrollables ) {
-        console.log( "\n\nkey: " + key );
-        console.dir( inScrollables[key] );
-        console.log( "type: " + typeof(inScrollables[key]) );
-        console.log( "key_type: " + typeof(key) );
-        if( key != "scroll_num" && key != "scroll_pos" ) {
-          console.log( "key is not " + key );
-          let pos = Number(key) + Number(length);
-          inScrollables[pos] = {};
-          Object.assign(
-            inScrollables[pos],
-            inScrollables[key]
-          );
-        }
-      }
-    }
-  }*/
 
   let dom = "<div class=\"scrollable_title\">" + title + "</div><br>";
   dom += "<div class=\"scrollable_container\">";
@@ -252,7 +230,6 @@ function compose_scrollable( inRowID, inScrollables, title ) {
   dom += "class=\"scrollable\"";
   dom += ">";
   for( let key in inScrollables ) {
-    console.dir( inScrollables[key] );
     if( key != "scroll_num" && key != "scroll_pos" ) {
       const item = inScrollables[key];
 
