@@ -208,13 +208,13 @@ function filter_scrollable( inScrollable, type, value ) {
 }
 
 function compose_scrollables( inScrollables ) {
-  compose_scrollable( 1, filter_scrollable( inScrollables, "genre", "Drama" ), "Movies" );
-  compose_scrollable( 2, filter_scrollable( inScrollables, "genre", "Comedy" ), "Comedy" );
+  compose_scrollable( 1, filter_scrollable( inScrollables, "genre", "Drama" ), "Dramas" );
+  compose_scrollable( 2, filter_scrollable( inScrollables, "genre", "Comedy" ), "Comedies" );
   compose_scrollable( 3, filter_scrollable( inScrollables, "genre", "Horror" ), "Horror" );
   compose_scrollable( 4, filter_scrollable( inScrollables, "genre", "Science Fiction" ), "Science Fiction" );
   compose_scrollable( 5, filter_scrollable( inScrollables, "genre", "Fantasy" ), "Fantasy" );
   compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Charlie Chaplin" ), "Charlie Chaplin" );
-  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Horror-Comedy" ), "Horror-Comedy" );
+  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Horror-Comedy" ), "Horror-Comedies" );
   compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Sherlock Holmes" ), "Sherlock Holmes" );
 }
 
