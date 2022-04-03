@@ -213,9 +213,9 @@ function compose_scrollables( inScrollables ) {
   compose_scrollable( 3, filter_scrollable( inScrollables, "genre", "Horror" ), "Horror" );
   compose_scrollable( 4, filter_scrollable( inScrollables, "genre", "Science Fiction" ), "Science Fiction" );
   compose_scrollable( 5, filter_scrollable( inScrollables, "genre", "Fantasy" ), "Fantasy" );
-  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Charlie Chaplin" ), "Charlie Chaplin" );
-  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Horror-Comedy" ), "Horror-Comedies" );
-  compose_scrollable( 5, filter_scrollable( inScrollables, "topic", "Sherlock Holmes" ), "Sherlock Holmes" );
+  compose_scrollable( 6, filter_scrollable( inScrollables, "topic", "Charlie Chaplin" ), "Charlie Chaplin" );
+  compose_scrollable( 7, filter_scrollable( inScrollables, "topic", "Horror-Comedy" ), "Horror-Comedies" );
+  compose_scrollable( 8, filter_scrollable( inScrollables, "topic", "Sherlock Holmes" ), "Sherlock Holmes" );
 }
 
 function compose_scrollable( inRowID, inScrollables, title ) {
