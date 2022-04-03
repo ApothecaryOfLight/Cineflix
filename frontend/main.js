@@ -102,6 +102,18 @@ const posters = [];
 function scroll_left( inRowId ) {
   const scrollable_name = "scrollable_" + inRowId;
   const scrollable = document.getElementById( scrollable_name );
+
+  //Get the width of the scrollable posters for this row.
+  //If the width of the scrollable posters is wider than the window,
+  //don't allow the scrolling by simply calling a return.
+  const computed = window.getComputedStyle( scrollable );
+  const width = computed.getPropertyValue( 'width' );
+  let scrollable_width = computed.getPropertyValue( 'width' );
+  const scrollable_width_num = Number( scrollable_width.substring(0, scrollable_width.length-2 ) );
+  if( scrollable_width_num < window.innerWidth ) {
+    return;
+  }
+
   posters[inRowId].scroll_pos += window.innerWidth - 150;
   if( posters[inRowId].scroll_pos >= 0 ) {
     posters[inRowId].scroll_pos = 0;
@@ -121,6 +133,15 @@ function scroll_right( inRowId ) {
   const margin_x = posters[inRowId].scroll_pos*-1;
   const window_width = window.innerWidth;
   let scrollable_width = computed.getPropertyValue( 'width' );
+
+  //Get the width of the scrollable posters for this row.
+  //If the width of the scrollable posters is wider than the window,
+  //don't allow the scrolling by simply calling a return.
+  const scrollable_width_num = Number( scrollable_width.substring(0, scrollable_width.length-2 ) );
+  if( scrollable_width_num < window.innerWidth ) {
+    return;
+  }
+
   scrollable_width = scrollable_width.slice(0,-2);
   const max_margin_x = Math.min(
     window_width - scrollable_width,
